@@ -1,6 +1,5 @@
 <div>
   <ul class="list-group">
-    <li class="list-group-item ">Lista sin condicion</li>
     <li class="list-group-item " *ngFor="let task of ArrayTasks">
 
       <div class="d-md-flex bd-highlight " *ngIf="inEditing === false || currentTask !== task.id">
