@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudTasksService } from '../../services/crud-tasks-firebase/crud-tasks.service'
-import * as firebase from 'firebase';
+// import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-tasks',
@@ -9,28 +9,33 @@ import * as firebase from 'firebase';
 })
 
 export class TasksComponent implements OnInit {
-
-  constructor(
-    public _CrudTasksService: CrudTasksService
-
-  ) { }
-
-  public firebase = firebase;
   public inEditing: boolean = false;
   public textUpdated: string;
   currentTask: any;
   tasks: any;
   ArrayTasks: any;
+  constructor(
+    public _CrudTasksService: CrudTasksService
+
+  ) { 
+      this._CrudTasksService.getTasksDb().subscribe(sda => {
+        this.ArrayTasks = sda;
+        console.log(this.ArrayTasks);
+        this.tasks = sda;
+   })
+  }
+  // public firebase = firebase;
+  
 
   ngOnInit() {
-    firebase
-      .database()
-      .ref('tasks').orderByChild('date')
-      .on('value', (snap) => {
-        console.log('snapshot', snap.val())
-        this.tasks = snap.val() || {};
-        this.ArrayTasks = Object.keys(this.tasks) || [];
-      });
+    // firebase
+    //   .database()
+    //   .ref('tasks').orderByChild('date')
+    //   .on('value', (snap) => {
+    //     console.log('snapshot', snap.val())
+    //     this.tasks = snap.val() || {};
+    //     this.ArrayTasks = Object.keys(this.tasks) || [];
+    //   });
   }
   markTaskDone(taskId) {
     this._CrudTasksService.markTaskDoneDb(taskId)
@@ -39,10 +44,10 @@ export class TasksComponent implements OnInit {
     this._CrudTasksService.deleteTaskDb(idTask)
   }
 
-  updateTask(idTask) {
+  updateTask(idTask, description) {
     this.currentTask = idTask;
     this.inEditing = true;
-    this.textUpdated = this.tasks[idTask]['description'];
+    this.textUpdated = description;
   }
 
   cancelEditTask() {

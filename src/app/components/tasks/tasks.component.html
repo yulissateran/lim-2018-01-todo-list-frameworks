@@ -1,33 +1,29 @@
-
-
 <div>
   <ul class="list-group">
     <li class="list-group-item ">Lista sin condicion</li>
     <li class="list-group-item " *ngFor="let task of ArrayTasks">
-     
-      <div class="d-md-flex bd-highlight" *ngIf="inEditing === false || currentTask !== task">
-        <div class="mr-auto  bd-highlight">
-          <span>{{tasks[task].description}}</span>
+
+      <div class="d-md-flex bd-highlight " *ngIf="inEditing === false || currentTask !== task.id">
+        <div class="mr-auto  bd-highlight col-md-6">
+          <span>{{task.description}}</span>
         </div>
-        <div class="bd-highlight m-1" *ngIf="inEditing === false && currentTask !== task">
-          <label></label>
-          <button type="button" class="btn px-3 " (click)="markTaskDone(task)" [ngClass]="{'bg-two': tasks[task].done, 'bg-secondary': !tasks[task].done}">
-            <i class="fas fa-check"></i>
-          </button>
+        <div class="bd-highlight m-1">
+          <div class="d-md-flex">         
+                  <button type="button" class="btn m-1" (click)="markTaskDone(task.id)" *ngIf="inEditing === false && currentTask !== task.id" [ngClass]="{'bg-two': task.done, 'bg-secondary': !task.done}">
+                    <i class="fas fa-check"></i>
+                  </button>            
+                  <button *ngIf="inEditing === false && currentTask !== task.id"  type="button" class="btn bg-gray m-1" (click)="deleteTask(task.id)"><i class="fas fa-trash-alt"></i></button>                 
+                  <button *ngIf="inEditing === false && currentTask !== task" type="button" class="btn  px-3 bg-gray m-1" (click)="updateTask(task.id, task.description)"><i class="fas fa-edit"></i></button>           
+          </div>       
         </div>
-        <div class=" bd-highlight m-1" *ngIf="inEditing === false && currentTask !== task">
-          <button type="button" class="btn bg-gray" (click)="deleteTask(task)"><i class="fas fa-trash-alt"></i></button>
-        </div>
-        <div class=" bd-highlight m-1" *ngIf="inEditing === false && currentTask !== task">
-          <button type="button" class="btn  px-3 bg-gray" (click)="updateTask(task)"><i class="fas fa-edit"></i></button>
-        </div>
+
       </div>
-      <div class="d-md-flex bd-highlight mx-1" *ngIf="inEditing && currentTask === task">
+      <div class="d-md-flex bd-highlight mx-1" *ngIf="inEditing && currentTask === task.id">
         <div class="mr-auto bd-highlight ">
-          <input type="text" [(ngModel)]="textUpdated">
+          <input type="text" [(ngModel)]="textUpdated" value="textUpdated">
         </div>
         <div class=" bd-highlight m-1">
-          <button type="button" class="btn bg-gray" (click)="saveEditTask(task)">Guardar</button>
+          <button type="button" class="btn bg-gray" (click)="saveEditTask(task.id)">Guardar</button>
         </div>
         <div class="bd-highlight m-1">
           <button type="button" class="btn bg-gray" (click)="cancelEditTask()">Cancelar</button>

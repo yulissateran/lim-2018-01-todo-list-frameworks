@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
 import { FormsModule } from '@angular/forms';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 // import { AngularFireAuthModule } from '@angular/fire/auth';
 import * as firebase from 'firebase';
 
@@ -21,6 +22,8 @@ firebase.initializeApp(environment.firebase);
     BrowserModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule
+
   ],
   providers: [CrudTasksService],
   bootstrap: [AppComponent]
