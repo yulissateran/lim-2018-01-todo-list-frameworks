@@ -1,0 +1,39 @@
+
+
+<div>
+  <ul class="list-group">
+    <li class="list-group-item ">Lista sin condicion</li>
+    <li class="list-group-item " *ngFor="let task of ArrayTasks">
+     
+      <div class="d-md-flex bd-highlight" *ngIf="inEditing === false || currentTask !== task">
+        <div class="mr-auto  bd-highlight">
+          <span>{{tasks[task].description}}</span>
+        </div>
+        <div class="bd-highlight m-1" *ngIf="inEditing === false && currentTask !== task">
+          <label></label>
+          <button type="button" class="btn px-3 " (click)="markTaskDone(task)" [ngClass]="{'bg-two': tasks[task].done, 'bg-secondary': !tasks[task].done}">
+            <i class="fas fa-check"></i>
+          </button>
+        </div>
+        <div class=" bd-highlight m-1" *ngIf="inEditing === false && currentTask !== task">
+          <button type="button" class="btn bg-gray" (click)="deleteTask(task)"><i class="fas fa-trash-alt"></i></button>
+        </div>
+        <div class=" bd-highlight m-1" *ngIf="inEditing === false && currentTask !== task">
+          <button type="button" class="btn  px-3 bg-gray" (click)="updateTask(task)"><i class="fas fa-edit"></i></button>
+        </div>
+      </div>
+      <div class="d-md-flex bd-highlight mx-1" *ngIf="inEditing && currentTask === task">
+        <div class="mr-auto bd-highlight ">
+          <input type="text" [(ngModel)]="textUpdated">
+        </div>
+        <div class=" bd-highlight m-1">
+          <button type="button" class="btn bg-gray" (click)="saveEditTask(task)">Guardar</button>
+        </div>
+        <div class="bd-highlight m-1">
+          <button type="button" class="btn bg-gray" (click)="cancelEditTask()">Cancelar</button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+  
