@@ -22,6 +22,7 @@ button:hover, i:hover {
   font-size: 130%;
 }
 
-#addTask i:hover {
+#addTask ,#addTask i:hover {
   color: white; 
+  font-size: 100%;
 }
