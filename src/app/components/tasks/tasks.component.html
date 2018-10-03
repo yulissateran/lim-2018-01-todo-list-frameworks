@@ -2,17 +2,17 @@
   <ul class="list-group">
     <li class="list-group-item " *ngFor="let task of ArrayTasks">
 
-      <div class="d-md-flex bd-highlight " *ngIf="inEditing === false || currentTask !== task.id">
+      <div class="d-md-flex bd-highlight" *ngIf="inEditing === false || currentTask !== task.id">
         <div class="mr-auto  bd-highlight col-md-6">
-          <span>{{task.description}}</span>
+          <span [ngClass]="{'text-through': task.done}">{{task.description}}</span>
         </div>
         <div class="bd-highlight m-1">
-          <div class="d-md-flex">         
-                  <button type="button" class="btn m-1" (click)="markTaskDone(task.id)" *ngIf="inEditing === false && currentTask !== task.id" [ngClass]="{'bg-two': task.done, 'bg-secondary': !task.done}">
-                    <i class="fas fa-check"></i>
-                  </button>            
-                  <button *ngIf="inEditing === false && currentTask !== task.id"  type="button" class="btn bg-gray m-1" (click)="deleteTask(task.id)"><i class="fas fa-trash-alt"></i></button>                 
-                  <button *ngIf="inEditing === false && currentTask !== task" type="button" class="btn  px-3 bg-gray m-1" (click)="updateTask(task.id, task.description)"><i class="fas fa-edit"></i></button>           
+          <div class="d-flex justify-content-around">                  
+                  <button *ngIf="inEditing === false && currentTask !== task" type="button" class="btn  m-1 text-secondary bg-white" (click)="updateTask(task.id, task.description)"><i class="fas fa-edit"></i></button>    
+                  <button *ngIf="inEditing === false && currentTask !== task.id"  type="button" class="btn  m-1 text-secondary bg-white" (click)="deleteTask(task.id)"><i class="fas fa-trash-alt"></i></button>                 
+                  <button type="button" class="btn m-1 bg-white " (click)="markTaskDone(task.id)" *ngIf="inEditing === false && currentTask !== task.id" [ngClass]="{'text-primary': task.done, 'text-secondary': !task.done}">
+                      <i class="fas fa-check"></i>
+                    </button>     
           </div>       
         </div>
 
@@ -21,12 +21,13 @@
         <div class="mr-auto bd-highlight ">
           <input type="text" [(ngModel)]="textUpdated" value="textUpdated">
         </div>
-        <div class=" bd-highlight m-1">
-          <button type="button" class="btn bg-gray" (click)="saveEditTask(task.id)">Guardar</button>
-        </div>
-        <div class="bd-highlight m-1">
-          <button type="button" class="btn bg-gray" (click)="cancelEditTask()">Cancelar</button>
-        </div>
+        <div class="bd-highlight">
+          <div class="d-flex justify-content-around">
+              <button type="button" class="btn  text-secondary bg-white" (click)="saveEditTask(task.id)"><i class="fas fa-save"></i></button>               
+              <button type="button" class="btn  text-secondary bg-white" (click)="cancelEditTask()"><i class="fas fa-times"></i></button>
+          </div>
+
+        </div>        
       </div>
     </li>
   </ul>

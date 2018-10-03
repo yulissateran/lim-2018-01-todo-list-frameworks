@@ -11,4 +11,19 @@
 .bg-gray {
   background-color: #BDBDBD;
 }
-
+.text-through {
+  text-decoration: line-through;
+}
+.text-secondary {
+  color: #0097A7;
+}
+i:hover {
+  color: #007bff;
+}
+#addTask:hover {
+  font-size: 110%;
+  color: white; 
+}
+#addTask i:hover {
+  color: white; 
+}
