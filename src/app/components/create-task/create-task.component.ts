@@ -26,9 +26,7 @@ export class CreateTaskComponent implements OnInit {
     } 
   }
   createTaskKeypress(event) {
-    // console.log('hola')
     if (event.keyCode === 13) {
-      console.log('hola')
       this.createTask()
     }
   }

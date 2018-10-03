@@ -20,7 +20,6 @@ export class TasksComponent implements OnInit {
   ) { 
       this._CrudTasksService.getTasksDb().subscribe(sda => {
         this.ArrayTasks = sda;
-        console.log(this.ArrayTasks);
         this.tasks = sda;
    })
   }
@@ -28,14 +27,6 @@ export class TasksComponent implements OnInit {
   
 
   ngOnInit() {
-    // firebase
-    //   .database()
-    //   .ref('tasks').orderByChild('date')
-    //   .on('value', (snap) => {
-    //     console.log('snapshot', snap.val())
-    //     this.tasks = snap.val() || {};
-    //     this.ArrayTasks = Object.keys(this.tasks) || [];
-    //   });
   }
   markTaskDone(taskId) {
     this._CrudTasksService.markTaskDoneDb(taskId)
