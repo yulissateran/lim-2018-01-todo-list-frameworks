@@ -17,13 +17,11 @@
 .text-secondary {
   color: #0097A7;
 }
-i:hover {
+button:hover, i:hover {
   color: #007bff;
+  font-size: 130%;
 }
-#addTask:hover {
-  font-size: 110%;
-  color: white; 
-}
+
 #addTask i:hover {
   color: white; 
 }

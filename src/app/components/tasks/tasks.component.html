@@ -8,9 +8,12 @@
         </div>
         <div class="bd-highlight m-1">
           <div class="d-flex justify-content-around">                  
-                  <button *ngIf="inEditing === false && currentTask !== task" type="button" class="btn  m-1 text-secondary bg-white" (click)="updateTask(task.id, task.description)"><i class="fas fa-edit"></i></button>    
-                  <button *ngIf="inEditing === false && currentTask !== task.id"  type="button" class="btn  m-1 text-secondary bg-white" (click)="deleteTask(task.id)"><i class="fas fa-trash-alt"></i></button>                 
-                  <button type="button" class="btn m-1 bg-white " (click)="markTaskDone(task.id)" *ngIf="inEditing === false && currentTask !== task.id" [ngClass]="{'text-primary': task.done, 'text-secondary': !task.done}">
+            <!-- <label for="1" *ngIf="inEditing === false && currentTask !== task" type="button" class=" m-1 text-secondary bg-white" (click)="updateTask(task.id, task.description)"><i class="fas fa-edit"></i></label> 
+             <button id="1" class="d-none"></button> -->
+            <button *ngIf="inEditing === false && currentTask !== task" type="button" class="btn  m-1 text-secondary bg-white" (click)="updateTask(task.id, task.description)"><i class="fas fa-edit"></i></button>    
+                  
+            <button *ngIf="inEditing === false && currentTask !== task.id"  type="button" class="btn  m-1 text-secondary bg-white" (click)="deleteTask(task.id)"><i class="fas fa-trash-alt"></i></button>                 
+            <button type="button" class="btn m-1 bg-white " (click)="markTaskDone(task.id)" *ngIf="inEditing === false && currentTask !== task.id" [ngClass]="{'text-primary': task.done, 'text-secondary': !task.done}">
                       <i class="fas fa-check"></i>
                     </button>     
           </div>       
