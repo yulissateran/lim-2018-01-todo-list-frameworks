@@ -1,74 +1,17 @@
-# To-do list con un framework
+# To-do list con Angular
 
 ## Objetivo
 
-Programar un to-do list que permita crear tareas, darlas por completadas y 
+Programar un to-do list que permita crear tareas, editarlas, darlas por completadas y 
 eliminarlas.
+## Tiempo empleado
+48 horas
 
 **Demo:**
-![todo-list](https://user-images.githubusercontent.com/25906896/45767595-35985e00-bc00-11e8-87e0-553c80524c13.gif)
+![todo-list](https://scontent.flim6-1.fna.fbcdn.net/v/t1.15752-9/43115214_2226708604251953_617744725276884992_n.png?_nc_cat=109&_nc_eui2=AeFKWy5aDADDaSBFSR6eJ8Hz-f3qdvLzPlos-rSiftIQm8WP-UBCFVWe51QV7Oe5udekleF33aSqfjoRMEjoGNh_q1u3gDZ3ne4NBbbcW2P3Pw&oh=2d58d6f045ea213a2f0357a2b09f5b9e&oe=5C230BFD)
 
-
-## Consideraciones generales
-
-Este proyecto se debe "resolver" de forma individual.
-
-Se deberá desarrollar con una de estas tres herramientas: Angular, 
-React o Vue; previamente elegida por ti.
-
-Se puede replicar el diseño propuesto o crear su propio estilo.
-
-Para comenzar tendrás que hacer un _fork_ y _clonar_ este repositorio.
-
-## Recursos
-
-### React
-
-* [React - docs oficiales](https://reactjs.org/)
-* [React - tutorial](https://egghead.io/courses/the-beginner-s-guide-to-react)
-* [create-react-app](https://github.com/facebook/create-react-app)
-* [React js en español - tutorial básico, primeros pasos y ejemplos - frontendlabs.io](https://frontendlabs.io/3158--react-js-espanol-tutorial-basico-primeros-pasos-ejemplos)
-
-### Angular
-
-* [Angular - docs oficiales](https://angular.io/)
-* [Angular CLI](https://cli.angular.io/)
-* [Angular - tutorial](https://www.youtube.com/watch?v=0eWrpsCLMJQ&list=PLC3y8-rFHvwhBRAgFinJR8KHIrCdTkZcZ)
-* [Angular - crud](https://www.youtube.com/watch?v=6wVolJfXn1c)
-
-### Vue
-
-* [Vue - docs oficiales](https://vuejs.org/)
-* [Vue CLI](https://cli.vuejs.org/)
-* [Vue- adicional](https://scotch.io/search?q=vue)
-* [Vue- school](https://vueschool.io/)
-
-
-## Checklist
-
-### Parte obligatoria
-
-#### General
-
-* [ ] El `README.md` debe contener un resumen de lo que encontraremos en tu 
-proyecto.
-
-#### Funcionalidades
-
-* [ ] Permite crear nuevas tareas.
-* [ ] No debe dejar agregar tareas vacías de ningún tipo.
-* [ ] Permite marcar las tareas completadas.
-* [ ] Permite eliminar tareas específicas.
-* [ ] Deberá contener mínimo 2 componentes.
-
-#### Desplegado
-
-* [ ] Deberá ser desplegado en gh-pages, Heroku, etc.
-
-### Hacker Edition
-
-* [ ] Editar la tarea.
-* [ ] Implementar las operaciones de CRUD de la data con Firebase.
-
-
-
+## Instrucciones de decarga y uso 
+- Clonar el repositorio.
+- npm install dentro de la carpeta.
+- npm install @angular/cli.
+- ng serve --open para abrir el proyecto en el navegador local.
